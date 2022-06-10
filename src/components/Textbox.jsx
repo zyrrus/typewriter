@@ -16,8 +16,8 @@ export default function Textbox({ showHint }) {
 
     const getNextToken = () => {
         // Check for special characters
-        const prefixes = ["っ"];
-        const suffixes = ["ー", "ゃ", "ゅ", "ょ"];
+        const prefixes = ["っ", "ッ"];
+        const suffixes = ["ー", "ゃ", "ゅ", "ょ", "ャ", "ュ", "ョ"];
 
         const curChar = incomingChars[0];
         const nextChar = incomingChars[1];
