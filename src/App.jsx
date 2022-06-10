@@ -6,7 +6,7 @@ function App() {
     const [showHint, setShowHint] = useState(true);
 
     return (
-        <div>
+        <>
             <div className='settings'>
                 <div className='button' onClick={() => setShowHint(!showHint)}>
                     {showHint ? (
@@ -17,7 +17,7 @@ function App() {
                 </div>
             </div>
             <Textbox showHint={showHint} />
-        </div>
+        </>
     );
 }
 
