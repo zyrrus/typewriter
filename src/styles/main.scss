@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap");
+
+$dark: #322e29;
+$grey: #6b5d4d;
+$light: #f5deb3;
+
+$font-en: 'Overpass Mono', monospace;
+$font-jp: 'Zen Kaku Gothic New', sans-serif;
+
+$font-size: 24pt;
+$font-size-sm: 18pt;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: $font-size;
+    @extend .en;
+}
+
+.en { font-family: $font-en; }
+.jp { font-family: $font-jp; }
+
+// body::after {
+//     content: "";
+//     position: absolute;
+//     background-color: red;
+//     top: 0;
+//     bottom: 0;
+//     left: 49.99%;
+//     right: 49.99%;
+// }
+
+body {
+    color: $light;
+    background-color: $dark;
+}
+
+.container { min-height: 100vh; }
+
+.centered-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > * {
+        max-width: 66%;
+        text-align: center;
+    }
+}
+
+.text {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: baseline;
+    white-space: pre;
+    
+    &__current {
+        background-color: $light;
+        color: $dark;
+        font-weight: bold;
+        position: relative;
+        @extend .jp;
+
+        $radius: 0.3em;
+        $padding: 0.25em;
+
+        border-radius: $radius;
+        padding: $padding;
+
+
+        &::after {
+            content: attr(data-hint);
+            position: absolute;
+            font-size: $font-size-sm;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: $radius;
+            padding: $padding;
+            background-color: $grey;
+            color: $dark;
+            @extend .en;
+        }
+    }
+
+    &__side {
+        overflow: hidden;
+    }
+
+    &__old { 
+        color: $grey;
+        justify-self: right;
+    }
+    &__new {}
+}
+  
+.settings {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+
+    .button {
+        font-size: $font-size-sm;
+        margin: 0.5em;
+        
+        > * {
+            padding: .2em;
+            border-radius: 99em;
+            border: 3px solid $light;
+
+        }
+    }
+}
